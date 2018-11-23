@@ -1,0 +1,12 @@
+<div class="board-container">
+  <div class="status-message">{{ gameStatus }}</div>
+  <div class="player-pc">
+    <app-player [playerHand]="pcHand"></app-player>
+  </div>
+  <button (click)="startGame()">Vai!</button>
+  <div class="player-container">
+    <div class="choose-left" (click)="setPlayerHand(-1)"><</div>
+    <app-player id="choose-right" [playerHand]="playerHand"></app-player>
+    <div class="choose-right" (click)="setPlayerHand(1)">></div>
+  </div>
+</div>

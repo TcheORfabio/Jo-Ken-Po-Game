@@ -1,0 +1,29 @@
+.board-container {
+    width: 500px;
+    height: 500px;
+    background-color: aqua;
+    margin: 0 auto;
+}
+
+.player-container {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.player-pc {
+    transform: rotate(180deg);
+}
+
+.choose-left {
+    width: 100px;
+    height: 100px;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.choose-right {
+    width: 100px;
+    height: 100px;
+    font-weight: bold;
+    font-size: 100px;
+}
