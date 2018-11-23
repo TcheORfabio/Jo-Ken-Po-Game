@@ -14,6 +14,7 @@ enum GameStatus {
   styleUrls: ['./board.component.css']
 })
 export class BoardComponent implements OnInit {
+  public score = { player: 0, pc: 0 };
   private _gameStatus = GameStatus.Waiting;
   private _player: PlayerChoices = PlayerChoices.Rock;
   private _pcHand: PlayerChoices = PlayerChoices.Paper;
@@ -58,22 +59,28 @@ export class BoardComponent implements OnInit {
         this.gameStatus = GameStatus.Draw;
       } else if (this.pcHand === PlayerChoices.Rock) {
         this.gameStatus = GameStatus.PlayerWon;
+        this.score.player++;
       } else if (this.pcHand === PlayerChoices.Scissors) {
         this.gameStatus = GameStatus.PCWon;
+        this.score.pc++;
       }
     } else if (this.playerHand === PlayerChoices.Rock) {
       if (this.pcHand === PlayerChoices.Paper) {
         this.gameStatus = GameStatus.PCWon;
+        this.score.pc++;
       } else if (this.pcHand === PlayerChoices.Rock) {
         this.gameStatus = GameStatus.Draw;
       } else if (this.pcHand === PlayerChoices.Scissors) {
         this.gameStatus = GameStatus.PlayerWon;
+        this.score.player++;
       }
     } else if (this.playerHand === PlayerChoices.Scissors) {
       if (this.pcHand === PlayerChoices.Paper) {
         this.gameStatus = GameStatus.PlayerWon;
+        this.score.player++;
       } else if (this.pcHand === PlayerChoices.Rock) {
         this.gameStatus = GameStatus.PCWon;
+        this.score.pc++;
       } else if (this.pcHand === PlayerChoices.Scissors) {
         this.gameStatus = GameStatus.Draw;
       }
@@ -83,5 +90,9 @@ export class BoardComponent implements OnInit {
   startGame() {
     this.setPcHand();
     this.checkWinner();
+  }
+
+  resetScore() {
+    this.score = { player: 0, pc: 0 };
   }
 }

@@ -1,9 +1,10 @@
 <div class="board-container">
-  <div class="status-message">{{ gameStatus }}</div>
+  <div class="status-message">{{ gameStatus }} Player: {{ score.player }} - PC: {{ score.pc }}</div>
   <div class="player-pc">
     <app-player [playerHand]="pcHand"></app-player>
   </div>
   <button (click)="startGame()">Vai!</button>
+  <button (click)="resetScore()">Restart</button>
   <div class="player-container">
     <div class="choose-left" (click)="setPlayerHand(-1)"><</div>
     <app-player id="choose-right" [playerHand]="playerHand"></app-player>
